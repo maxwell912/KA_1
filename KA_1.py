@@ -26,14 +26,14 @@ class Field:
     height: int
 
     def is_clear(self, node: Node):
-        return node.x < self.width and node.y < self.height and self.field[node.y][node.x] == 0
+        return 0 <= node.x < self.width and 0 <= node.y < self.height and self.field[node.y][node.x] == 0
 
 
 def get_start_info(input_file: str):
     with open(input_file, 'r', newline='\n') as file:
         height = int(file.readline())
         width = int(file.readline())
-        field = [list() for _ in range(width)]
+        field = [list() for _ in range(height)]
         for i in range(height):
             for cell in file.readline():
                 if cell.isdigit():
